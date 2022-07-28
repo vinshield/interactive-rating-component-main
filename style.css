@@ -13,6 +13,7 @@
 * {
     margin: 0;
     padding: 0;
+    /* box-sizing: border-box; */
 }
 
 body {
@@ -22,8 +23,10 @@ body {
 
 .card {
     background-color: var(--dark-blue);
-    padding: 15px;
-    border-radius: 15px;
+    width: 90vw;
+    box-sizing: border-box;
+    padding: 32px 20px;
+    border-radius: 16px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -37,51 +40,59 @@ body {
 }
 
 .content {
-    width: 76vw;
-    max-width: 285px;
+    /* max-width: 285px; */
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-img {
+.star-img {
     display: block;
-    width: 15px; 
+    width: 15px;
     height: 15px;
 }
 
 .circle {
     /* padding: 20px; */
     border-radius: 100%;
-    background-color: purple;
-    width: 40px; 
-    height: 40px;
-    display: flex; 
+    background-color: hsl(213, 18%, 23%);
+    width: 45px;
+    height: 45px;
+    display: flex;
     justify-content: center;
     align-items: center;
-}
-
-
-ul {
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
+    font-size: 15px;
+    /* box-sizing: border-box; */
 }
 
 .title {
     color: var(--white);
+    font-size: 1.6rem;
 }
 
 .card-message {
     font-size: 15px;
     color: var(--light-grey);
+    line-height: 1.55;
 }
 
 .rating {
     color: var(--light-grey);
     list-style-type: none;
+    display: flex;
+    justify-content: space-between;
 }
 
 .submit-btn {
     text-transform: uppercase;
+    color: white;
+    background-color: var(--orange);
+    font-size: 0.9rem;
+    letter-spacing: 2.5px;
+    height: 48px; 
+    border-radius: 30px;
+    border: none;
 }
 
 .thankyou {
