@@ -78,19 +78,23 @@ body {
     line-height: 1.55;
 }
 
-.rating {
+.rating-box {
     color: var(--light-grey);
     list-style-type: none;
     display: flex;
     justify-content: space-between;
 }
 
-.rating > li:hover {
+.clickable {
+    transition: all .3s ease-out;
+}
+
+.rating:hover {
     background-color: var(--light-grey);
     color: white;
 }
 
-.submit-btn {
+#submit-btn {
     text-transform: uppercase;
     color: white;
     background-color: var(--orange);
@@ -101,9 +105,13 @@ body {
     border: none;
 }
 
-.submit-btn:hover {
+#submit-btn:hover {
     color: var(--orange);
     background-color: var(--white);
+}
+
+.clickable:hover {
+    cursor: pointer;
 }
 
 .thankyou {

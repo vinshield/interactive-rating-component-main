@@ -23,7 +23,7 @@
 
   <main>
     <!-- Rating state start -->
-    <div class="rating card">
+    <div class="rate-us card">
       <div class="content">
         <div class="circle"><img src="images\icon-star.svg" class="star-img" alt="An orange coloured star"></div>
 
@@ -37,15 +37,15 @@
           to help us improve our offering!
         </p>
 
-        <ul class="rating">
-          <li class="circle">1</li>
-          <li class="circle">2</li>
-          <li class="circle">3</li>
-          <li class="circle">4</li>
-          <li class="circle">5</li>
+        <ul class="rating-box">
+          <li class="circle rating clickable">1</li>
+          <li class="circle rating clickable">2</li>
+          <li class="circle rating clickable">3</li>
+          <li class="circle rating clickable">4</li>
+          <li class="circle rating clickable">5</li>
         </ul>
 
-        <button class="submit-btn">Submit</button>
+        <button class="clickable" id="submit-btn">Submit</button>
       </div>
     </div>
 
@@ -80,6 +80,35 @@
       Coded by <a href="https://github.com/vinshield" target="_blank">Jesse</a>.
     </div>
   </footer>
+
+  <script>
+    let ratings = document.querySelectorAll('.rating');
+    let submitBtn = document.getElementById('submit-btn');
+
+    function ratingClick() {
+         ratings.forEach(rating => {
+          //Make sure every rating is set to default colors
+          rating.style.background = 'hsl(213, 18%, 23%)';
+          rating.style.color = 'hsl(217, 12%, 63%)';
+        })
+        //Make sure each clicked rating changes colors
+        this.style.color = 'white';
+        this.style.background = 'hsl(25, 97%, 53%)';
+    }
+
+    //Change colors of cliked rating
+    ratings.forEach(rating => {
+      rating.addEventListener('click', ratingClick);
+    })
+
+    submitBtn.addEventListener('click', (e) => {
+      submitBtn.style.background = 'hsl(0, 0%, 100%)'; 
+      submitBtn.style.color = 'hsl(25, 97%, 53%)';
+      ratings.forEach(rating => {
+        rating.removeEventListener('click', ratingClick);
+      });
+    })
+  </script>
 
 </body>
 
