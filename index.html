@@ -1,49 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive rating component</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Frontend Mentor | Interactive rating component</title>
 </head>
+
 <body>
 
-  <!-- Rating state start -->
+  <main>
+    <!-- Rating state start -->
+    <div class="rate-us card">
+      <div class="content">
+        <div class="circle"><img src="images\icon-star.svg" class="star-img" alt="An orange coloured star"></div>
 
-  How did we do?
 
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
+        <h1 class="title">
+          How did we do?
+        </h1>
 
-  1 2 3 4 5
+        <p class="card-message">
+          Please let us know how we did with your support request. All feedback is appreciated
+          to help us improve our offering!
+        </p>
 
-  Submit
+        <ul class="rating-box">
+          <li class="circle rating clickable">1</li>
+          <li class="circle rating clickable">2</li>
+          <li class="circle rating clickable">3</li>
+          <li class="circle rating clickable">4</li>
+          <li class="circle rating clickable">5</li>
+        </ul>
 
-  <!-- Rating state end -->
+        <button class="clickable" id="submit-btn">Submit</button>
+      </div>
+    </div>
 
-  <!-- Thank you state start -->
+    <!-- Rating state end -->
 
-  You selected <!-- Add rating here --> out of 5
+    <!-- Thank you state start -->
+    <div class="thankyou card">
+      <div class="content">
+        <p class="styled-text">
+          You selected
+          <!-- Add rating here --> out of 5
+        </p>
 
-  Thank you!
+        <h1 class="title">
+          Thank you!
+        </h1>
 
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
+        <p class="card-message">
+          We appreciate you taking the time to give a rating. If you ever need more support,
+          don’t hesitate to get in touch!
+        </p>
+      </div>
+    </div>
+    <!-- Thank you state end -->
+  </main>
 
-  <!-- Thank you state end -->
 
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/vinshield" target="_blank">Jesse</a>.
+    </div>
+  </footer>
+
+  <script>
+    let ratings = document.querySelectorAll('.rating');
+    let submitBtn = document.getElementById('submit-btn');
+
+    function ratingClick() {
+         ratings.forEach(rating => {
+          //Make sure every rating is set to default colors
+          rating.style.background = 'hsl(213, 18%, 23%)';
+          rating.style.color = 'hsl(217, 12%, 63%)';
+        })
+        //Make sure each clicked rating changes colors
+        this.style.color = 'white';
+        this.style.background = 'hsl(25, 97%, 53%)';
+    }
+
+    //Change colors of cliked rating
+    ratings.forEach(rating => {
+      rating.addEventListener('click', ratingClick);
+    })
+
+    submitBtn.addEventListener('click', (e) => {
+      submitBtn.style.background = 'hsl(0, 0%, 100%)'; 
+      submitBtn.style.color = 'hsl(25, 97%, 53%)';
+      ratings.forEach(rating => {
+        rating.removeEventListener('click', ratingClick);
+      });
+    })
+  </script>
+
 </body>
+
 </html>
